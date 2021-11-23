@@ -7,7 +7,7 @@ const Layouts = props => {
   return (
     <>
       <Navigation />
-      <main>{props.children}</main>
+      <main className="py-3">{props.children}</main>
       <Footer />
     </>
   );
