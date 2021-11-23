@@ -12,7 +12,7 @@ const App = () => {
         <Container>
           <Route path="/" component={HomePages} exact />
           <Route path="/:genreId/:genreName" component={GenrePage} exact />
-          <Route path="/:movieId" component={MoviePage} exact />
+          <Route path="/movie/detail/:movieId" component={MoviePage} exact />
         </Container>
       </Layouts>
     </Router>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import MovieCard from '../components/MovieCard';
 
@@ -20,6 +21,9 @@ const GenrePage = ({ match }) => {
   return (
     <>
       <h2>{match.params.genreName}</h2>
+      <Link className="btn btn-dark my-3" to="/">
+        Go Back
+      </Link>
       <Row>
         {movies.map(movie => (
           <Col key={movie.id} sm={12} md={6} lg={4} xl={3}>

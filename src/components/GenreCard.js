@@ -6,7 +6,7 @@ const GenreCard = ({ genre }) => {
   return (
     <Card className="my-3 py-3 rounded">
       <Link to={`/${genre.id}/${genre.name}`}>
-        <Card.Img src={`/images/Comedy.jpg`} variant="top" />
+        <Card.Img src={`/images/${genre.name}.jpg`} variant="top" />
       </Link>
       <Card.Body>
         <Card.Title as="div" className="text-center">

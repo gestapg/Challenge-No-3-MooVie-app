@@ -1,14 +1,12 @@
 import React from 'react';
-// import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Navbar, Container } from 'react-bootstrap';
 
 const Navigation = () => {
   return (
     <header>
       <Navbar bg="primary" expand="lg" variant="dark" collapseOnSelect>
         <Container>
-          <a href="/">
+          <a href="/" style={{ textDecoration: 'none' }}>
             <Navbar.Brand>MooVies</Navbar.Brand>
           </a>
         </Container>
