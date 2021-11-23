@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { Row, Col, ListGroup, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
+import Loading from '../components/Loading';
+
 const MoviePage = ({ match }) => {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -22,7 +24,7 @@ const MoviePage = ({ match }) => {
   return (
     <>
       {isLoading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <>
           <Link className="btn btn-dark my-3" to="/">
