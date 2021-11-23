@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Layouts from './components/Layouts';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import GenreCard from './components/GenreCard';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layouts>
+        <Route path="/" component={GenreCard} exact />
+      </Layouts>
+    </Router>
   );
-}
+};
 
 export default App;
