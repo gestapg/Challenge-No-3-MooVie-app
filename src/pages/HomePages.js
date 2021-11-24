@@ -1,24 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
+
+import { fetchGenres } from '../store/action/movie';
+
 import GenreCard from '../components/GenreCard';
 
 const HomePages = () => {
-  const [genres, setGenres] = useState([]);
+  const { genres } = useSelector(state => state.movieReducer);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchGenres = async () => {
-      const { data } = await axios.get(
-        'https://api.themoviedb.org/3/genre/movie/list?api_key=0d84cce1916332759750a482f018e8fe&language=en-US'
-      );
-      const filtered = data.genres.filter(
-        genre => genre.name !== 'Documentary'
-      );
-
-      setGenres(filtered);
-    };
-    fetchGenres();
-  }, []);
+    dispatch(fetchGenres());
+  }, [dispatch]);
 
   return (
     <>

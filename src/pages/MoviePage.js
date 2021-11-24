@@ -1,25 +1,21 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, ListGroup, Image, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 import Loading from '../components/Loading';
+import { fetchMovie } from '../store/action/movie';
 
 const MoviePage = ({ match }) => {
-  const [movie, setMovie] = useState({});
+  const { movie } = useSelector(state => state.movieReducer);
+  const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    const fetchMovie = async () => {
-      const { data } = await axios.get(
-        `https://api.themoviedb.org/3/movie/${match.params.movieId}?api_key=0d84cce1916332759750a482f018e8fe&language=en-US`
-      );
-      setMovie(data);
-    };
-    fetchMovie();
+    dispatch(fetchMovie(match.params.movieId));
     setIsLoading(false);
-  }, []);
+  }, [dispatch, match.params.movieId]);
 
   return (
     <>
